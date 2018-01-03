@@ -44,7 +44,7 @@ public class ForumDAOImpl implements ForumDAO {
 	public boolean updateForum(Forum forum) {
 		try
 		{
-		sessionFactory.getCurrentSession().saveOrUpdate(forum);
+		sessionFactory.getCurrentSession().update(forum);
 		return true;
 		}
 		catch(Exception e)

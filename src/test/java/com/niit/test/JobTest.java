@@ -33,7 +33,7 @@ static JobDAO jobDAO;
 		
 		jobDAO=(JobDAO)context.getBean("jobDAO");
 	}
-	
+@Ignore
 	@Test
 	public void addJobTest()
 	{
@@ -41,31 +41,31 @@ static JobDAO jobDAO;
 		job.setJobProfile("software");
 		job.setJobDesc("software trainer");
 		job.setQualification("btech");
-		job.setStatus("Y");
+		job.setStatus("N");
 		job.setPostDate(new java.util.Date());
 		
 		assertTrue("Problem in Inserting Job",jobDAO.addJob(job));
 	
 	}
-	
 	@Ignore
 	@Test
 	public void updateJob()
 	{
 		Job job=new Job();
+		job.setJobId(73);
 		job.setJobProfile("software");
 		job.setJobDesc("software engineer");
 		job.setQualification("btech");
-		job.setStatus("Y");
+		job.setStatus("N");
 		job.setPostDate(new java.util.Date());
 		
-		assertTrue("Problem in Inserting Job",jobDAO.addJob(job));
+		assertTrue("Problem in Inserting Job",jobDAO.updateJob(job));
 	}
 	
-	@Ignore
+@Ignore
 	@Test
 	public void getJobTest(){
-		Job job=(Job)jobDAO.getJob(1);
+		Job job=(Job)jobDAO.getJob(73);
 		
 		System.out.println("JobProfile:" + job.getJobProfile());
 		System.out.println("Status:" +job.getStatus());
@@ -73,16 +73,16 @@ static JobDAO jobDAO;
 		assertNotNull("job not found", job);
 	}
 	
-	@Ignore
+@Ignore
 	@Test
 	public void deleteJobTest(){
-		Job job=(Job)jobDAO.getJob(1);
+		Job job=(Job)jobDAO.getJob(73);
 		assertTrue("Problem in deletion",jobDAO.deleteJob(job));
 	}
-	@Ignore
+@Ignore
 	@Test
 	public void approveJobTest(){
-		Job job=(Job)jobDAO.getJob(2);
+		Job job=(Job)jobDAO.getJob(77);
 		assertTrue("Problem in approving",jobDAO.approveJob(job));
 	}
 	@Ignore

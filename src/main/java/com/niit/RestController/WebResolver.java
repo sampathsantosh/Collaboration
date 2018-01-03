@@ -1,4 +1,4 @@
-/*package com.niit.RestController;
+package com.niit.RestController;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,4 +19,4 @@ public InternalResourceViewResolver getViewResolver()
 	iRVResolver.setSuffix(".jsp");
 	return iRVResolver;
 }
-}*/
+}

@@ -34,6 +34,7 @@ import com.niit.model.User;
 
 
 
+
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("com.niit")
@@ -45,8 +46,8 @@ public class DbConfig {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		dataSource.setUsername("mydb");
-		dataSource.setPassword("oracle");
+		dataSource.setUsername("site");
+		dataSource.setPassword("site");
 
 		System.out.println("DataBase is connected.........!");
 		return dataSource;
@@ -54,8 +55,9 @@ public class DbConfig {
 
 	public Properties getHibernateProperties() {
 		Properties properties = new Properties();
+		properties.put("hibernate.format_sql","true");
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		properties.put("hibernate.dialect","org.hibernate.dialect.OracleDialect");
+		properties.put("hibernate.dialect","org.hibernate.dialect.Oracle10gDialect");
 		return properties;
 
 	}

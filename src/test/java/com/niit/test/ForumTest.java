@@ -18,7 +18,7 @@ import com.niit.model.Forum;
 
 
 @ComponentScan("collbackend")
-@Ignore
+@	Ignore
 public class ForumTest {
 static ForumDAO forumDAO;
 	
@@ -32,7 +32,7 @@ static ForumDAO forumDAO;
 		
 		forumDAO=(ForumDAO)context.getBean("forumDAO");
 	}
-	
+@Ignore
 	@Test
 	public void addForumTest()
 	{
@@ -46,8 +46,7 @@ static ForumDAO forumDAO;
 		assertTrue("Problem in Inserting Forum",forumDAO.addForum(forum));
 	
 	}
-	
-	@Ignore
+@Ignore
 	@Test
 	public void updateForum()
 	{
@@ -56,7 +55,7 @@ Forum forum=new Forum();
 		forum.setForumId(1);
 		forum.setForumName("web");
 		forum.setForumContent("designing");
-		assertTrue("Problem in Inserting Forum",forumDAO.addForum(forum));
+		assertTrue("Problem in Inserting Forum",forumDAO.updateForum(forum));
 	}
 	
 	@Ignore
@@ -70,13 +69,13 @@ Forum forum=new Forum();
 		assertNotNull("forum not found", forum);
 	}
 	
-	@Ignore
+@Ignore
 	@Test
 	public void deleteForumTest(){
 		Forum forum=(Forum)forumDAO.getForum(1);
 		assertTrue("Problem in deletion",forumDAO.deleteForum(forum));
 	}
-	@Ignore
+@Ignore
 	@Test
 	public void approveForumTest(){
 		Forum forum=(Forum)forumDAO.getForum(1);

@@ -11,79 +11,82 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
+
 import com.niit.DAO.FriendDAO;
 import com.niit.config.DbConfig;
 import com.niit.model.Friend;
 
-
-
-@ComponentScan("collbackend")
-@Ignore
+@ComponentScan("com.niit.")
 public class FriendTest {
-static FriendDAO friendDAO;
+	
+    static FriendDAO  friendDAO;
 	
 	@BeforeClass
+	@Ignore
 	public static void initialize()
 	{
+		@SuppressWarnings("resource")
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 		context.register(DbConfig.class);
-		context.scan("collbackend");
+		context.scan("com.niit");
 		context.refresh();
-		
-		friendDAO=(FriendDAO)context.getBean("friendDAO");
-	}
-	
 
-	@Test
-	public void addFriendTest()
-	{
-		Friend friend=new Friend();
-		friend.setFriendId(1);
-		friend.setStatus("Y");
-		assertTrue("Problem in Inserting Friend",friendDAO.addFriend(friend));
+	    friendDAO=(FriendDAO)context.getBean("friendDAO");
 	}
+
 	@Ignore
 	@Test
-	public void updateFriend()
-	{
-		Friend friend=new Friend();
-		friend.setFriendId(1);
-		friend.setStatus("N");
-		assertTrue("Problem in Inserting Friend",friendDAO.addFriend(friend));
+	public void saveFriend() {
+		Friend friend = new Friend();
+		friend.setFriendId(3);
+		friend.setUsername("sunny");
+		friend.setFriendname("sunil");
+		friend.setStatus("R");
+		assertTrue("problem in friend", friendDAO.createFriend(friend));
 	}
-	
+
 	@Ignore
 	@Test
-	public void getFriendTest(){
-		Friend friend=(Friend)friendDAO.getFriend(1);
-		
-		System.out.println("FriendId:" + friend.getFriendId());
-		System.out.println("Status:" +friend.getStatus());
-		
-		assertNotNull("friend not found", friend);
+	public void getAllFriendRequest() {
+		List<Friend> listFriends = friendDAO.getAllFriendRequest("supraja");
+		assertNotNull("problem in list friends", listFriends);
+		for (Friend friend : listFriends) {
+			System.out.println("current username:::" + friend.getUsername());
+			System.out.println("friend name::::" + friend.getFriendname());
+			System.out.println("status::::" + friend.getStatus());
+		}
+
 	}
-	
-	@Ignore
+@Ignore
 	@Test
-	public void deleteFriendTest(){
-		Friend friend=(Friend)friendDAO.getFriend(1);
-		assertTrue("Problem in deletion",friendDAO.deleteFriend(friend));
+	public void getFriendId() {
+		Friend friend = (Friend) friendDAO.getFriend(3);
+		assertNotNull("error", friend);
+		System.out.println("friend status::::" + friend.getStatus());
 	}
-	@Ignore
+@Ignore
 	@Test
-	public void approveFriendTest(){
-		Friend friend=(Friend)friendDAO.getFriend(2);
-		assertTrue("Problem in approving",friendDAO.approveFriend(friend));
-	}
-	@Ignore
-	@Test
-	public void getAllFriendTest(){
-		List<Friend> friendList=(List<Friend>)friendDAO.getAllFriends();
-		assertNotNull("Friend list not found ",friendList.get(0));
-		for(Friend friend:friendList)
-		{
-			System.out.println("FreindID:"+friend.getFriendId() + "Status:"+friend.getStatus());
+	public void getAllApprovedFriendTest() {
+		List<Friend> listFriends = friendDAO.getApprovedFriends("supraja");
+		assertNotNull("problem in listFriends", listFriends);
+		for (Friend friend : listFriends) {
+			System.out.println("current user name:::" + friend.getUsername());
+			System.out.println("current friend name:" + friend.getFriendname());
+			System.out.println("status:::" + friend.getStatus());
 		}
 	}
-		
+	@Ignore
+	@Test
+	public void approveFriendRequest()
+	{
+		Friend friend=friendDAO.getFriend(1);
+		assertTrue("problem in approving",friendDAO.approveFriendRequest(friend));
+	}
+	@Ignore
+	@Test
+	public void rejectFriendRequest()
+	{
+		Friend friend=friendDAO.getFriend(5);
+		assertTrue("problem in approving",friendDAO.rejectFriendRequest(friend));
+	}
 }

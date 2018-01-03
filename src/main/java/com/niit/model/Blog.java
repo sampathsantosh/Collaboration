@@ -1,6 +1,5 @@
 package com.niit.model;
 
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,9 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Blog {
 	@Id
-	 @GeneratedValue
-     @Column(name = "BLOG_ID")
-private int BlogId;
+	private int BlogId;
 private String BlogContent;
 private String BlogName;
 private int UserId;

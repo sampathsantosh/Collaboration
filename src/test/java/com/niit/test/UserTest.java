@@ -1,4 +1,4 @@
-package com.niit.test;
+/*package com.niit.test;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -32,15 +32,15 @@ static UserDAO userDAO;
 		userDAO=(UserDAO)context.getBean("userDAO");
 	}
 	
-
+ @Ignore
 	@Test
 	public void addUserTest()
 	{
 		User user=new User();
 		user.setUserId(1003);
-		user.setFirstName("sravani");
+		user.setFirstName("santhosh");
 		user.setLastName("m");
-		user.setEmailId("sravani.m452@gmail.com");
+		user.setEmailId("santhoshreddy182@gmail.com");
 		user.setPassword("12345");
 		user.setRole("user");
 		user.setStatus("N");
@@ -55,21 +55,21 @@ static UserDAO userDAO;
 	{
 User user=new User();
 user.setUserId(1003);
-user.setFirstName("sravani");
+user.setFirstName("santhu");
 user.setLastName("m");
-user.setEmailId("sravani.m452@gmail.com");
+user.setEmailId("santhu@gmail.com");
 user.setPassword("12345");
 user.setRole("user");
 user.setStatus("Y");
 user.setIsOnlime("Y");
-assertTrue("Problem in Inserting User",userDAO.addUser(user));
+assertTrue("Problem in Inserting User",userDAO.updateUser(user));
 
 	}
 	
 	@Ignore
 	@Test
 	public void getUserTest(){
-		User user=(User)userDAO.getUser(1);
+		User user=(User)userDAO.getUser(3);
 		
 		System.out.println("FirstName:" + user.getFirstName());
 		System.out.println("Role:" +user.getRole());
@@ -77,16 +77,16 @@ assertTrue("Problem in Inserting User",userDAO.addUser(user));
 		assertNotNull("user not found", user);
 	}
 	
-	@Ignore
+@Ignore
 	@Test
 	public void deleteUserTest(){
-		User user=(User)userDAO.getUser(1);
+		User user=(User)userDAO.getUser(3);
 		assertTrue("Problem in deletion",userDAO.deleteUser(user));
 	}
-	@Ignore
+@Ignore
 	@Test
 	public void approveUserTest(){
-		User user=(User)userDAO.getUser(2);
+		User user=(User)userDAO.getUser(1003);
 		assertTrue("Problem in approving",userDAO.approveUser(user));
 	}
 	@Ignore
@@ -100,4 +100,4 @@ assertTrue("Problem in Inserting User",userDAO.addUser(user));
 		}
 	}
 		
-	}
+	}*/

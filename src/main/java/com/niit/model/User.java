@@ -1,63 +1,74 @@
 package com.niit.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.springframework.stereotype.Component;
+
+
 @Entity
 @Table(name = "USERS")
 @Component
 public class User {
 	
-	@Id
-	@GeneratedValue
-    @Column(name = "USER_ID")
-private int UserId;
-private String FirstName;
-private String LastName;
-private String Password;
-private String EmailId;
-private String Role;
+	
+@Id
+@GeneratedValue
+private int userId;
+private String firstName;
+private String lastName;
+private String username;
+private String password;
+private String emailId;
+private String role;
 private String status;
-private String isOnlime;
+private String isOnline;
+
+
+
+
 public int getUserId() {
-	return UserId;
+	return userId;
 }
 public void setUserId(int userId) {
-	UserId = userId;
+	this.userId = userId;
 }
 public String getFirstName() {
-	return FirstName;
+	return firstName;
 }
 public void setFirstName(String firstName) {
-	FirstName = firstName;
+	this.firstName = firstName;
 }
 public String getLastName() {
-	return LastName;
+	return lastName;
 }
 public void setLastName(String lastName) {
-	LastName = lastName;
+	this.lastName = lastName;
+}
+public String getUsername() {
+	return username;
+}
+public void setUsername(String username) {
+	this.username = username;
 }
 public String getPassword() {
-	return Password;
+	return password;
 }
 public void setPassword(String password) {
-	Password = password;
+	this.password = password;
 }
 public String getEmailId() {
-	return EmailId;
+	return emailId;
 }
 public void setEmailId(String emailId) {
-	EmailId = emailId;
+	this.emailId = emailId;
 }
 public String getRole() {
-	return Role;
+	return role;
 }
 public void setRole(String role) {
-	Role = role;
+	this.role = role;
 }
 public String getStatus() {
 	return status;
@@ -66,10 +77,12 @@ public void setStatus(String status) {
 	this.status = status;
 }
 public String getIsOnlime() {
-	return isOnlime;
+	return isOnline;
 }
-public void setIsOnlime(String isOnlime) {
-	this.isOnlime = isOnlime;
+public void setIsOnline(String isOnline) {
+	this.isOnline = isOnline;
 }
+
+
 
 }

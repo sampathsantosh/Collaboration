@@ -6,18 +6,10 @@ import com.niit.model.User;
 
 public interface UserDAO {
 
-public boolean addUser(User user);
-	
-	public boolean updateUser(User user);
-	
-	public boolean deleteUser(User user);
-	
-	public User getUser(int userId);
-	
-	public List<User> getAllusers();
-	
-	public boolean approveUser(User user);
-	
-	public boolean rejectUser(User user);
-	
+	public boolean addUserDetail(User user);
+	public boolean updateOnlineStatus(String status, User user);
+	public User getByEmail(String email);
+	public List<User> getAllUserDetails();
+	public User getUserDetails(String username);
+/*	public boolean checkLogin (User userDetail);*/
 }

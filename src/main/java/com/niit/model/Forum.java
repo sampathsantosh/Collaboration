@@ -16,8 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Forum {
 	@Id
-	 @GeneratedValue
-     @Column(name = "FORUM_ID")
+	
 private int ForumId;
 private String ForumContent;
 private String ForumName;

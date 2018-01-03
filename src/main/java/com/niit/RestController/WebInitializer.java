@@ -1,4 +1,4 @@
-/*package com.niit.RestController;
+package com.niit.RestController;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -16,4 +16,4 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	protected String[] getServletMappings(){
 		return new String[]{"/"};
 	}
-}*/
+}

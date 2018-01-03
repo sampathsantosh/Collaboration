@@ -16,10 +16,8 @@ import com.niit.model.Blog;
 
 
 
-
-
-@ComponentScan("com.niit")
-
+@ComponentScan("collbackend")
+@Ignore
 public class BlogTest {
 static BlogDAO blogDAO;
 	
@@ -28,18 +26,20 @@ static BlogDAO blogDAO;
 	{
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 		context.register(DbConfig.class);
-		context.scan("com.niit");
+		context.scan("collbackend");
 		context.refresh();
 		
 		blogDAO=(BlogDAO)context.getBean("blogDAO");
 	}
-	@Ignore
+	
+    @Ignore
 	@Test
 	public void addBlogTest()
 	{
-		Blog blog=new Blog();	
-		/*blog.setBlogId(100)*/
-		blog.setBlogName("mysql");
+		Blog blog=new Blog();
+		
+		blog.setBlogId(1003);
+		blog.setBlogName("HTML");
 		blog.setBlogContent("Designed for web pages");
 		blog.setStatus("p");
 		blog.setLikes(6);
@@ -47,47 +47,44 @@ static BlogDAO blogDAO;
 		
 		assertTrue("Problem in Inserting Blog",blogDAO.addBlog(blog));
 	
-	} 
-	
+	}
+	@Ignore
 	@Test
 	public void updateBlog()
 	{
-    Blog blog=new Blog();
+        Blog blog=new Blog();
 		
-		blog.setBlogId(21);
+		blog.setBlogId(1003);
 		blog.setBlogName("HTML");
-		blog.setBlogContent(" web pages");
+		blog.setBlogContent("Angular JS");
 		blog.setStatus("p");
-		blog.setLikes(7);
+		blog.setLikes(70);
 		blog.setCreateDate(new java.util.Date());
 		
-		assertTrue("Problem in Inserting Blog",blogDAO.addBlog(blog));
+		assertTrue("Problem in Inserting Blog",blogDAO.updateBlog(blog));
 	}
-	
 	@Ignore
 	@Test
 	public void getBlogTest(){
-		Blog blog=(Blog)blogDAO.getBlog(3);
+		Blog blog=(Blog)blogDAO.getBlog(1003);
 		
 		System.out.println("BlogName:" + blog.getBlogName());
 		System.out.println("BlogContent:" +blog.getBlogContent());
 		
 		assertNotNull("blog not found", blog);
 	}
-	
 	@Ignore
 	@Test
 	public void deleteBlogTest(){
-		Blog blog=(Blog)blogDAO.getBlog(1);
+		Blog blog=(Blog)blogDAO.getBlog(1003);
 		assertTrue("Problem in deletion",blogDAO.deleteBlog(blog));
 	}
-	@Ignore
+@Ignore
 	@Test
 	public void approveBlogTest(){
-		Blog blog=(Blog)blogDAO.getBlog(2);
+		Blog blog=(Blog)blogDAO.getBlog(1003);
 		assertTrue("Problem in approving",blogDAO.approveBlog(blog));
 	}
-	@Ignore
 	@Test
 	public void getAllBlogTest(){
 		List<Blog> blogList=(List<Blog>)blogDAO.getAllBlogs();
@@ -99,4 +96,3 @@ static BlogDAO blogDAO;
 	}
 		
 	}
-	
