@@ -1,21 +1,39 @@
-myapp.controller("jobsController", function($scope, $http, $location) {
-	function fetchAllJobs() {
-		console.log("fetched all jobs")
-		$http.get("http://localhost:8086/CollaborationBackend/getAllJobs")
+myapp.controller("jobsController", function($scope, $http, $location,$rootScope)
+		{
+	$scope.job={jobid:0,jobName:'',jobDesc:'',postedDate:'',lastDate:'',salary:0};
+	$scope.listJobs;
+	
 
-		.then(function(response) {
-			$scope.jobsdata = response.data;
-			console.log("all jobs fetched")
-		});
+	$scope.postJob=function()
+	{
+		console.log('Posting Job');
+		
+		$http.post('http://localhost:8181/SocialCollaboration/insertJob',$scope.job)
+		.then(function(response)
+				{
+				console.log('Successfully Posted the Job');
+				});
 	}
-	;
+	
+	$scope.removeJob=function(jobId)
+	{
+		console.log('Deleting job');
+		$http.get('http://localhost:8181/SocialCollaboration/deleteJob/'+jobId)
+		.then(function(response)
+				{
+				console.log('Job Deleted');
+				});
+	}
+	
+	function fetchAllJobs()
+	{
+		$http.get('http://localhost:8181/SocialCollaboration/getAllJobs')
+		.then(function(response)
+				{
+				$scope.jobsdata=response.data;
+			console.log("all jobs fetched");
+				});
+	}
+	
 	fetchAllJobs();
-	$scope.insertJobs = function() {
-		console.log('entered insertJobs');
-		$http.post('http://localhost:8086/CollaborationBackend/insertJobs',
-				$scope.jobs).then(fetchAllJobs(), function(response) {
-			console.log("successful jobs entered");
-			$location.path("/jobs")
-		});
-	}
 });

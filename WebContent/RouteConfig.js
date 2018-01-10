@@ -1,39 +1,42 @@
-var myapp=angular.module("myApp",['ngRoute']);
-myapp.config(function($routeProvider) {
-    $routeProvider
-      .when("#/",{templateUrl:"index.html"})
-      
-      .when("#/",{templateUrl:"home.html", 
-    	  controller:"mainController"})
-      
-      
-      .when("/Blog",{
-    	  templateUrl:"Blog/Blog.html",
-    	  controller:'BlogController'
-    		  })
-      
-       .when("/forum",{
-    	   templateUrl:"Forum/Forum.html",
-    		   controller:'ForumController'   
-       })
-       
-        .when("/adminBlog",{
-         templateUrl:"Blog/AdminBlog.html",
-   	     controller:'AdminBlogController'
+var myapp=angular.module("myApp",['ngRoute','ngCookies']);
 
-         })
-        
-         
-    .when("/login",{
-    	
-    	templateUrl:"user/login.html",
-    	controller:'UserController'
-    		
-      })
-     .when("/registration",{
-    	 
-    	 templateUrl:"user/registration.html",
-    	 controller:'UserController'
-    
-})
-});
+myapp.config(function($routeProvider)
+		{
+			$routeProvider.when("#/",{templateUrl:"index.html"})
+						  .when("/Blog",{templateUrl:"Blog/Blog.html"})
+						  .when("/ViewBlog",{templateUrl:"Blog/ViewBlog.html"})
+						  .when("/postblog",{templateUrl:"Blog/Blog.html"})
+						  .when("/ViewForum",{templateUrl:"Forum/ViewForum.html"})
+						  .when("/postforum",{templateUrl:"Forum/Forum.html"})
+						  .when("/Forum",{templateUrl:"Forum/Forum.html"})
+						  .when("/adminBlog",{templateUrl:"Blog/AdminBlog.html"})
+						  .when("/adminForum",{templateUrl:"Forum/adminForum.html"})
+						  .when("/Register",{templateUrl:"User/Register.html"})
+						  .when("/login",{templateUrl:"user/login.html"})
+						  .when("/UserHome",{templateUrl:"user/UserHome.html"})
+						  .when("/Friend",{templateUrl:"user/Friend.html"})
+						  .when("/jobs",{templateUrl:"Job/jobs.html" })
+        		          .when("/showjobs",{templateUrl:"Job/Showjobs.html"})	
+						  .when("/ShowFriendRequest",{templateUrl:"Friend/ShowFriendRequest.html"})
+						  .when("/ProfilePic",{templateUrl:"user/ProfilePic.html"})
+						  .when("/logout",{templateUrl:"user/Logout.html"})
+						  .when("/Chat",{templateUrl:"Chat/Chat.html"});
+			
+		});
+
+myapp.run(function($rootScope,$cookieStore)
+		{
+			console.log('I am in run function');
+			
+			console.log($rootScope.currentUser);
+			
+				if($rootScope.currentUser==undefined)
+				{
+				$rootScope.currentUser=$cookieStore.get('userDetails');
+				}
+				else
+				{
+				console.log($rootScope.currentUser.username);
+				console.log($rootScope.currentUser.role);
+				}
+		});   

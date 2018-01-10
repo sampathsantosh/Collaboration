@@ -1,0 +1,21 @@
+<div data-ng-controller="BlogController">
+
+		<div class="table-responsive">
+	<table id="myTable" class="table table-striped" >
+		<thead>
+		<tr bgcolor="hotpink">
+			<td>Blog Name</td>
+			<td>Blog Content</td>
+			
+		</tr>
+		</thead>
+				<tr bgcolor="cyan" ng-repeat="blog in blogdata">
+			<td>{{blog.blogName}}</td>
+			<td>{{blog.blogContent}}</td>
+			<td>{{blog.likes}}</td>
+			<td colspan="2">
+		</tr>
+
+	</table>
+</div>
+</div>
