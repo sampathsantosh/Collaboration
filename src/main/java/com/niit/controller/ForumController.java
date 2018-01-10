@@ -18,7 +18,7 @@ import com.niit.model.Forum;
 public class ForumController {
 	@Autowired
 	ForumDAO forumDAO;
-	@GetMapping (value="/insertForum")
+	@PostMapping (value="/insertForum")
 	public ResponseEntity<String> insertForum(@RequestBody Forum forum){
 		if(forumDAO.addForum(forum))
 		{

@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.niit.DAO.JobDAO;
 import com.niit.config.DbConfig;
-import com.niit.model.Job;
+import com.niit.model.Jobs;
 
 
 
@@ -37,7 +37,7 @@ static JobDAO jobDAO;
 	@Test
 	public void addJobTest()
 	{
-		Job job=new Job();
+		Jobs job=new Jobs();
 		job.setJobProfile("software");
 		job.setJobDesc("software trainer");
 		job.setQualification("btech");
@@ -51,7 +51,7 @@ static JobDAO jobDAO;
 	@Test
 	public void updateJob()
 	{
-		Job job=new Job();
+		Jobs job=new Jobs();
 		job.setJobId(73);
 		job.setJobProfile("software");
 		job.setJobDesc("software engineer");
@@ -65,7 +65,7 @@ static JobDAO jobDAO;
 @Ignore
 	@Test
 	public void getJobTest(){
-		Job job=(Job)jobDAO.getJob(73);
+		Jobs job=(Jobs)jobDAO.getJob(73);
 		
 		System.out.println("JobProfile:" + job.getJobProfile());
 		System.out.println("Status:" +job.getStatus());
@@ -76,21 +76,21 @@ static JobDAO jobDAO;
 @Ignore
 	@Test
 	public void deleteJobTest(){
-		Job job=(Job)jobDAO.getJob(73);
+		Jobs job=(Jobs)jobDAO.getJob(73);
 		assertTrue("Problem in deletion",jobDAO.deleteJob(job));
 	}
 @Ignore
 	@Test
 	public void approveJobTest(){
-		Job job=(Job)jobDAO.getJob(77);
+		Jobs job=(Jobs)jobDAO.getJob(77);
 		assertTrue("Problem in approving",jobDAO.approveJob(job));
 	}
 	@Ignore
 	@Test
 	public void getAllJobTest(){
-		List<Job> jobList=(List<Job>)jobDAO.getAlljobs();
+		List<Jobs> jobList=(List<Jobs>)jobDAO.getAlljobs();
 		assertNotNull("Job list not found ",jobList.get(0));
-		for(Job job:jobList)
+		for(Jobs job:jobList)
 		{
 			System.out.println("JObID:"+job.getJobId() + "JobProfile:"+job.getJobProfile());
 		}

@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.niit.DAO.FriendDAO;
 import com.niit.model.Friend;
 
+
+
 @RestController
 public class FriendController {
+
 	@Autowired
 	FriendDAO friendDAO;
 
@@ -31,6 +34,7 @@ public class FriendController {
 			return new ResponseEntity<String>("Failed", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
 	@GetMapping(value="/rejectFriendRequest/{friendId}")
 	public ResponseEntity<String> rejectFriendRequest(@PathVariable("friendId") int friendId)
 	{
@@ -59,7 +63,11 @@ public class FriendController {
 	@GetMapping(value="/getAllFriendRequest")
 	public ResponseEntity<List<Friend>> getAllFriendRequest(HttpSession session)
 	{
+	//	UsersDetails	userDetail=(UsersDetails)session.getAttribute("üser");
+
 		String currentUser=(String)session.getAttribute("currentUser");
+		currentUser="mayank";
+		System.out.println("Current User:"+currentUser);
 		List<Friend> listFriendRequests=friendDAO.getAllFriendRequest(currentUser);
 		return new ResponseEntity<List<Friend>>(listFriendRequests,HttpStatus.OK);
 	}

@@ -14,53 +14,54 @@ import org.springframework.stereotype.Component;
 @Component
 public class Blog {
 	@Id
-	private int BlogId;
-private String BlogContent;
-private String BlogName;
-private int UserId;
-private Date CreateDate;
-private int Likes;
-private String Status;
+	@GeneratedValue
+	private int blogId;
+private String blogContent;
+private String blogName;
+private int userId;
+private Date createDate;
+private int likes;
+private String status;
 public int getBlogId() {
-	return BlogId;
+	return blogId;
 }
 public void setBlogId(int blogId) {
-	BlogId = blogId;
+	this.blogId = blogId;
 }
 public String getBlogContent() {
-	return BlogContent;
+	return blogContent;
 }
 public void setBlogContent(String blogContent) {
-	BlogContent = blogContent;
+	this.blogContent = blogContent;
 }
 public String getBlogName() {
-	return BlogName;
+	return blogName;
 }
 public void setBlogName(String blogName) {
-	BlogName = blogName;
+	this.blogName = blogName;
 }
 public int getUserId() {
-	return UserId;
+	return userId;
 }
 public void setUserId(int userId) {
-	UserId = userId;
-}
-public int getLikes() {
-	return Likes;
-}
-public void setLikes(int likes) {
-	Likes = likes;
-}
-public String getStatus() {
-	return Status;
-}
-public void setStatus(String status) {
-	Status = status;
+	this.userId = userId;
 }
 public Date getCreateDate() {
-	return CreateDate;
+	return createDate;
 }
 public void setCreateDate(Date createDate) {
-	CreateDate = createDate;
+	this.createDate = createDate;
+}
+public int getLikes() {
+	return likes;
+}
+public void setLikes(int likes) {
+	this.likes = likes;
+}
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
 }
 }

@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.DAO.JobDAO;
-import com.niit.model.Job;
+import com.niit.model.Jobs;
 
 
 @RestController
 public class JobController {
 	@Autowired
 	JobDAO jobDAO;
-	@GetMapping (value="/insertJob")
-	public ResponseEntity<String> insertJob(@RequestBody Job job){
+
+	@PostMapping (value="/insertJob")
+	public ResponseEntity<String> insertJob(@RequestBody Jobs job){
 		if(jobDAO.addJob(job))
 		{
 			return new ResponseEntity<String>("Job Added",HttpStatus.OK);
@@ -29,8 +30,8 @@ public class JobController {
 		}
 	}
 	@PostMapping(value="/updateJob")
-	public ResponseEntity<String> updateJob(@RequestBody Job job){
-		Job tempJob=jobDAO.getJob(job.getJobId());
+	public ResponseEntity<String> updateJob(@RequestBody Jobs job){
+		Jobs tempJob=jobDAO.getJob(job.getJobId());
 		tempJob.setJobProfile(job.getJobProfile());
 		tempJob.setJobDesc(job.getJobDesc());
 		if(jobDAO.updateJob(job))
@@ -43,12 +44,12 @@ public class JobController {
 		}
 	}
 	@GetMapping(value="/getAllJobs")
-	public ResponseEntity<ArrayList<Job>>getAllJobs(){
+	public ResponseEntity<ArrayList<Jobs>>getAllJobs(){
 		ArrayList listJobs=(ArrayList)jobDAO.getAlljobs();
-		return new ResponseEntity<ArrayList<Job>>(listJobs,HttpStatus.OK);
+		return new ResponseEntity<ArrayList<Jobs>>(listJobs,HttpStatus.OK);
 	}
 	@PostMapping(value="/deleteJob")
-	public ResponseEntity<String> deleteJob(@RequestBody Job job)
+	public ResponseEntity<String> deleteJob(@RequestBody Jobs job)
 	{
 		/*Job job=jobDAO.getJob(job.getJobId());*/
 		if(jobDAO.deleteJob(job)){

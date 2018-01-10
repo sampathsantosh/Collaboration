@@ -58,10 +58,10 @@ public class BlogController {
 			
 			return new ResponseEntity<ArrayList<Blog>>(listblogs,HttpStatus.OK);
 		}
-		@PostMapping(value="/deleteBlog")
-		public ResponseEntity<String> deleteBlog(@RequestBody Blog blog)
+		@GetMapping(value="/deleteBlog/{blogId}")
+		public ResponseEntity<String> deleteBlog(@PathVariable("blogId") int blogId)
 		{
-			Blog tempBlog=blogDAO.getBlog(blog.getBlogId());
+			Blog tempBlog=blogDAO.getBlog(blogId);
 			if(blogDAO.deleteBlog(tempBlog))
 			{
 				return new ResponseEntity<String>("Blog deleted successfully",HttpStatus.OK);

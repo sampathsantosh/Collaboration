@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.niit.model.Job;
+import com.niit.model.Jobs;
 
 
 @Repository
@@ -25,7 +25,7 @@ public class JobDAOImpl implements JobDAO {
 		this.sessionFactory=sessionFactory;
 	}
 	@Transactional
-	public boolean addJob(Job job) {
+	public boolean addJob(Jobs job) {
 		try
 		{
 		sessionFactory.getCurrentSession().save(job);
@@ -38,7 +38,7 @@ public class JobDAOImpl implements JobDAO {
 		}	
 	}
 @Transactional
-	public boolean updateJob(Job job) {
+	public boolean updateJob(Jobs job) {
 		try
 		{
 		sessionFactory.getCurrentSession().saveOrUpdate(job);
@@ -51,7 +51,7 @@ public class JobDAOImpl implements JobDAO {
 		}	
 	}
 @Transactional
-	public boolean deleteJob(Job job) {
+	public boolean deleteJob(Jobs job) {
 		try
 		{
 		sessionFactory.getCurrentSession().delete(job);
@@ -64,22 +64,22 @@ public class JobDAOImpl implements JobDAO {
 		}	
 	}
 @Transactional
-	public Job getJob(int jobId) {
+	public Jobs getJob(int jobId) {
 		Session session=sessionFactory.openSession();
-		Job job=(Job)session.get(Job.class, jobId);
+		Jobs job=(Jobs)session.get(Jobs.class, jobId);
 		session.close();
 		return job;
 	}
 @Transactional
-	public List<Job> getAlljobs() {
+	public List<Jobs> getAlljobs() {
 Session session=sessionFactory.openSession();
 		
-		List<Job> jobList=(List<Job>)session.createQuery("from Job").list();
+		List<Jobs> jobList=(List<Jobs>)session.createQuery("from Jobs").list();
 		session.close();
 		return jobList;
 	}
 @Transactional
-	public boolean approveJob(Job job) {
+	public boolean approveJob(Jobs job) {
 		try{
 			job.setStatus("A");
 			sessionFactory.getCurrentSession().saveOrUpdate(job);
@@ -92,7 +92,7 @@ Session session=sessionFactory.openSession();
 			}	
 		}
 @Transactional
-	public boolean rejectJob(Job job) {
+	public boolean rejectJob(Jobs job) {
 		try{
 			job.setStatus("N");
 			sessionFactory.getCurrentSession().update(job);

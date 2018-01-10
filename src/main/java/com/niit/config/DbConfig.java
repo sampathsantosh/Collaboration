@@ -1,4 +1,4 @@
-package com.niit.config;
+ package com.niit.config;
 
 
 import java.util.Properties;
@@ -29,8 +29,8 @@ import com.niit.DAO.UserDAOImpl;
 import com.niit.model.Blog;
 import com.niit.model.Forum;
 import com.niit.model.Friend;
-import com.niit.model.Job;
-import com.niit.model.User;
+import com.niit.model.Jobs;
+import com.niit.model.UsersDetails;
 
 
 
@@ -70,8 +70,8 @@ public class DbConfig {
 	
 		sessionBuilder.addAnnotatedClasses(Blog.class);
 		sessionBuilder.addAnnotatedClasses(Forum.class);
-		sessionBuilder.addAnnotatedClasses(User.class);
-		sessionBuilder.addAnnotatedClasses(Job.class);
+		sessionBuilder.addAnnotatedClasses(UsersDetails.class);
+		sessionBuilder.addAnnotatedClasses(Jobs.class);
 		sessionBuilder.addAnnotatedClasses(Friend.class);
 		sessionBuilder.scanPackages("com.niit");
 		System.out.println("Session is crated................!");

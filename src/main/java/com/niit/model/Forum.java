@@ -16,36 +16,36 @@ import org.springframework.stereotype.Component;
 @Component
 public class Forum {
 	@Id
-	
-private int ForumId;
-private String ForumContent;
-private String ForumName;
-private int UserId;
+	@GeneratedValue
+private int forumId;
+private String forumContent;
+private String forumName;
+private int userId;
 private Date CreateDate;
-private String Status;
+private String status;
 public int getForumId() {
-	return ForumId;
+	return forumId;
 }
 public void setForumId(int forumId) {
-	ForumId = forumId;
+	this.forumId = forumId;
 }
 public String getForumContent() {
-	return ForumContent;
+	return forumContent;
 }
 public void setForumContent(String forumContent) {
-	ForumContent = forumContent;
+	this.forumContent = forumContent;
 }
 public String getForumName() {
-	return ForumName;
+	return forumName;
 }
 public void setForumName(String forumName) {
-	ForumName = forumName;
+	this.forumName = forumName;
 }
 public int getUserId() {
-	return UserId;
+	return userId;
 }
 public void setUserId(int userId) {
-	UserId = userId;
+	this.userId = userId;
 }
 public Date getCreateDate() {
 	return CreateDate;
@@ -54,10 +54,10 @@ public void setCreateDate(Date createDate) {
 	CreateDate = createDate;
 }
 public String getStatus() {
-	return Status;
+	return status;
 }
 public void setStatus(String status) {
-	Status = status;
+	this.status = status;
 }
 
 }
