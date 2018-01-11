@@ -66,7 +66,7 @@ public class FriendController {
 	//	UsersDetails	userDetail=(UsersDetails)session.getAttribute("üser");
 
 		String currentUser=(String)session.getAttribute("currentUser");
-		currentUser="mayank";
+		currentUser="anush";
 		System.out.println("Current User:"+currentUser);
 		List<Friend> listFriendRequests=friendDAO.getAllFriendRequest(currentUser);
 		return new ResponseEntity<List<Friend>>(listFriendRequests,HttpStatus.OK);

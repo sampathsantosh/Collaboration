@@ -24,12 +24,15 @@ import com.niit.DAO.FriendDAO;
 import com.niit.DAO.FriendDAOImpl;
 import com.niit.DAO.JobDAO;
 import com.niit.DAO.JobDAOImpl;
+import com.niit.DAO.ProfilePictureDAO;
+import com.niit.DAO.ProfilePictureDAOImpl;
 import com.niit.DAO.UserDAO;
 import com.niit.DAO.UserDAOImpl;
 import com.niit.model.Blog;
 import com.niit.model.Forum;
 import com.niit.model.Friend;
 import com.niit.model.Jobs;
+import com.niit.model.ProfilePicture;
 import com.niit.model.UsersDetails;
 
 
@@ -73,6 +76,7 @@ public class DbConfig {
 		sessionBuilder.addAnnotatedClasses(UsersDetails.class);
 		sessionBuilder.addAnnotatedClasses(Jobs.class);
 		sessionBuilder.addAnnotatedClasses(Friend.class);
+		sessionBuilder.addAnnotatedClass(ProfilePicture.class);
 		sessionBuilder.scanPackages("com.niit");
 		System.out.println("Session is crated................!");
 
@@ -121,5 +125,12 @@ public class DbConfig {
 	{
 		System.out.println("Friend DAO object Created");
 		return new FriendDAOImpl(sessionFactory);
+	}
+	@Autowired
+	@Bean(name="profilePictureDAO")
+
+	public ProfilePictureDAO getProfilePictureDAO(SessionFactory sessionFactory) {
+		System.out.println("ProfilePicture DAO object Created");
+		return new ProfilePictureDAOImpl(sessionFactory);
 	}
 }

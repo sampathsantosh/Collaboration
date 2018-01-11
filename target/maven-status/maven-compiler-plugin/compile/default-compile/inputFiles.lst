@@ -6,6 +6,7 @@ F:\workspace\SocialCollaboration\src\main\java\com\niit\model\Forum.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\DAO\ProfilePictureDAOImpl.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\model\UsersDetails.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\DAO\BlogDAOImpl.java
+F:\workspace\SocialCollaboration\src\main\java\com\niit\controller\ProfilePictureController.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\controller\FriendController.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\controller\JobController.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\RestController\WebResolver.java
@@ -20,6 +21,7 @@ F:\workspace\SocialCollaboration\src\main\java\com\niit\DAO\FriendDAO.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\DAO\JobDAO.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\model\Friend.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\controller\ForumController.java
+F:\workspace\SocialCollaboration\src\main\java\com\niit\controller\ChatController.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\model\ProfilePicture.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\config\DbConfig.java
 F:\workspace\SocialCollaboration\src\main\java\com\niit\DAO\BlogDAO.java

@@ -2,8 +2,8 @@ package com.niit.model;
 
 import java.util.Date;
 
-public class OutputMessage extends Message
-{
+
+public class OutputMessage extends Message{
 	private Date time;
 
 	public OutputMessage(Message original, Date time) {

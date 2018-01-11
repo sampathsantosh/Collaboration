@@ -14,6 +14,7 @@ com\niit\model\Forum.class
 com\niit\RestController\WebInitializer.class
 com\niit\DAO\BlogDAOImpl.class
 com\niit\model\Jobs.class
+com\niit\controller\ProfilePictureController.class
 com\niit\model\OutputMessage.class
 com\niit\model\Message.class
 com\niit\model\Blog.class
@@ -27,3 +28,4 @@ com\niit\DAO\FriendDAO.class
 com\niit\model\Friend.class
 com\niit\DAO\ProfilePictureDAOImpl.class
 com\niit\model\UsersDetails.class
+com\niit\controller\ChatController.class
