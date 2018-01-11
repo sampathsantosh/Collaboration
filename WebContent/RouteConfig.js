@@ -16,11 +16,12 @@ myapp.config(function($routeProvider)
 						  .when("/UserHome",{templateUrl:"user/UserHome.html"})
 						  .when("/Friend",{templateUrl:"user/Friend.html"})
 						  .when("/jobs",{templateUrl:"Job/jobs.html" })
+						  .when('/Chat', {templateUrl : "Chat/Chat.html"})
         		          .when("/showjobs",{templateUrl:"Job/Showjobs.html"})	
 						  .when("/ShowFriendRequest",{templateUrl:"Friend/ShowFriendRequest.html"})
 						  .when("/ProfilePic",{templateUrl:"user/ProfilePic.html"})
 						  .when("/logout",{templateUrl:"user/Logout.html"})
-						  .when("/Chat",{templateUrl:"Chat/Chat.html"});
+						  //.when("/Chat",{templateUrl:"Chat/Chat.html"});
 			
 		});
 
