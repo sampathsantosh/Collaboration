@@ -1,6 +1,6 @@
 package com.niit.test;
 
-import static org.junit.Assert.assertNotNull;
+/*import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -89,4 +89,4 @@ public class FriendTest {
 		Friend friend=friendDAO.getFriend(5);
 		assertTrue("problem in approving",friendDAO.rejectFriendRequest(friend));
 	}
-}
+}*/
