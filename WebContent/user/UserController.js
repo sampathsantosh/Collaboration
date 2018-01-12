@@ -23,6 +23,7 @@ myapp.controller("UserController",function($scope,$http,$location,$rootScope,$co
 		.then(function(response)
 				{
 					console.log('Successfully Registered');
+					$location.path("/login");
 				});
 	};
 	

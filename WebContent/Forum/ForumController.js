@@ -28,7 +28,7 @@ myapp.controller("ForumController",function($scope,$http,$location,$rootScope)
 		$scope.deleteBlog=function(blogId)
 		{
 			console.log('Entering to Delete Forum');
-			$http.get('http://localhost:8181/SocialCollaboration/deleteBForum/'+forumId)
+			$http.get('http://localhost:8181/SocialCollaboration/deleteForum/'+forumId)
 			.success(fetchAllForum(),function(response)
 					{
 					console.log('Successful Deletion');
@@ -40,7 +40,7 @@ myapp.controller("ForumController",function($scope,$http,$location,$rootScope)
 		$scope.editForum=function(forumId)
 		{
 			console.log('Entering to the edit Forum');
-			$http.get('http://localhost:8181/SocialCollaboration/editBForum/'+forumId)
+			$http.get('http://localhost:8181/SocialCollaboration/updateForum/'+forumId)
 			.success(fetchAllForum(),function(response)
 					{
 					console.log('Editing');

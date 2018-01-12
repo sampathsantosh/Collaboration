@@ -9,8 +9,8 @@
 
 <table border="1">
 	
-	<tr bgcolor="cyan"><td colspan="3"><center>Friend List</center></td></tr>
-	
+	<tr bgcolor="default"><td colspan="6"><center>Friend List</center></td></tr>
+	<table class="table table-striped">
 	<tr ng-repeat="user in allusers" bgcolor="gray">
 		<td>{{user.username}}</td>
 		<td>{{user.firstName}}</td>
@@ -21,7 +21,7 @@
 			Offline
 		</td>
 	</tr>
-	
+	</table>
 
 </table>
 

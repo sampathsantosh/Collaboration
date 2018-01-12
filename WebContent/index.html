@@ -3,6 +3,9 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta Http-Equiv="Cache-Control" Content="no-cache">
+<meta Http-Equiv="Pragma" Content="no-cache">
+<meta Http-Equiv="Expires" Content="0"> 
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -28,7 +31,7 @@
 
 <body data-ng-app="myApp">
 	Role:{{currentUser.role}}
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-default">
 	<div class="container">
 	<div class="navbar-header">
 	<a class="navbar-brand" href="/">Collaboration</a>
@@ -59,10 +62,10 @@
       
       <li><a href="#/registration" data-ng-hide="currentUser.firstName">Register</a></li>
       
- 		<li><a href="#/login" data-ng-hide="currentUser.firstName">login</a></li>
-         <li><a href="" data-ng-click="logout()" data-ng-show="currentUser.firstName">logout</a></li>
+ 		<li><a href="#/login" data-ng-hide="currentUser.firstName">Login</a></li>
+         <li><a href="" data-ng-click="logout()" data-ng-show="currentUser.firstName">Logout</a></li>
          
-      <li><a href="#/Chat">Chat</a></li>
+      <li><a href="#/Chat" ng-show="currentUser.role=='user'">Chat</a></li>
       
      <li><a href="#/jobs" ng-show="currentUser.role=='Admin'">Add Jobs</a></li>
       <li ><a href="#/showjobs"  ng-show="currentUser.role=='user'">Show Job</a></li>
@@ -70,8 +73,8 @@
 	<li ><a href="#ShowFriendRequest"ng-show="currentUser.role=='user'"> Friend Request</a></li>
    </ul>
       <div class="nav navbar-nav navbar-right" ng-hide="currentUser==undefined">
-         <font color='white' face='calibri' size='4'>Welcome :{{currentUser.username}} &nbsp;&nbsp;&nbsp
-        <img src="http://localhost:8181/SocialCollaboration/getimage/{{currentUser.username}}" width="20" height=20"/>
+         <font color='grey' face='calibri' size='4'>Welcome :{{currentUser.username}} &nbsp;&nbsp;&nbsp
+        <img src="http://localhost:8181/SocialCollaboration/getimage/{{currentUser.username}}" width="30px" height="30px"/>
        <!-- <form><input type="submit" value="Logout" ng-click="logout()"/></form> -->
          <a href="#/ProfilePic">Profile Picture</a>
          </font>
